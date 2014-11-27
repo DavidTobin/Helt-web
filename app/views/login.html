@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<hr />
+
+<form ng-submit="getToken">
+  <div class="row half">
+    <label class="flex-item">Email</label>
+    <input class="flex-item" type="email" ng-model="login.email" placeholder="Email Address" />
+  </div>
+
+  <div class="row half">
+    <label class="flex-item">Password</label>
+    <input class="flex-item" type="password" ng-model="login.password" placeholder="Password" />
+  </div>
+
+  <div class="row half end">
+    <button>Login</button>
+  </div>
+</form>

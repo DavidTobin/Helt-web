@@ -1,0 +1,162 @@
+@import "fonts";
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/typography/links";
+
+$background-color: #e3e3e3;
+
+$primary-color: #1e1e1f;
+$secondary-color: #ffffff;
+$tertiary-color: #070708;
+
+$brand-color: #D01316;
+
+$font-color-dark: #333;
+$font-color-light: #ccc;
+$font-color: $font-color-dark;
+
+$base-font: "Open Sans", sans-serif;
+$link-font: $base-font;
+$logo-font: "Lato", sans-serif;
+$skinny-font: "Lato", sans-serif;
+
+$base-font-size: 16px;
+
+$base-padding: 15px 10px;
+
+$sidebar-width: 20%;
+
+$icon-small: 16px;
+$icon-medium: 24px;
+$icon-large: 32px;
+
+$heart-icon: \u2665;
+
+$input-height: 35px;
+
+* {
+  outline: none;
+}
+
+a {
+  @include unstyled-link();
+  @include link-colors($font-color, lighten($font-color, 10%), lighten($font-color, 20%));
+  @include text-shadow(0px 1px 1px $font-color-dark);
+
+  font-size: $base-font-size;
+  font-family: $link-font;
+}
+
+h1 {
+  font-size: $base-font-size + 12px;
+}
+
+h2 {
+  font-size: $base-font-size + 10px;
+}
+
+h3 {
+  font-size: $base-font-size + 8px;
+}
+
+h4 {
+  font-size: $base-font-size + 6px;
+}
+
+h5 {
+  font-size: $base-font-size + 4px;
+}
+
+h6 {
+  font-size: $base-font-size;
+}
+
+.row {
+  @include display-flex();
+
+  width: 100%;
+  margin-top: 20px;
+}
+
+.flex-item {
+  width: 100%;
+}
+
+.half {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.start {
+  justify-content: flex-start;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.logo {
+  color: $secondary-color;
+  font-size: $icon-large;
+  font-family: $logo-font;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: default;
+}
+
+.heart {
+  color: $brand-color;
+
+  &:before {
+    content: "\2665";
+  }
+
+  &.large {
+    font-size: $icon-large;
+  }
+}
+
+label {
+  width: 20% !important;
+  text-transform: uppercase;
+  font-family: $skinny-font;
+  font-size: $base-font-size - 2px;
+  font-weight: 300;
+  align-self: center;
+  margin-right: 20px;
+}
+
+input {
+  @include box-shadow(0px 1px 1px lighten($primary-color, 40%));
+
+  border: none;
+  border-top: 1px solid lighten($primary-color, 83%);
+  color: lighten($font-color-dark, 10%);
+  height: $input-height;
+  padding: 0 8px;
+  outline: none;
+}
+
+button {
+  @include transition(background 500ms);
+
+  background: $tertiary-color;
+  color: $secondary-color;
+  font-family: $skinny-font;
+  padding: 8px 25px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: lighten($tertiary-color, 10%);
+  }
+
+  &:active,
+  &.active {
+    background: lighten($tertiary-color, 20%);
+  }
+}
