@@ -1,0 +1,73 @@
+.row {
+  @include display-flex();
+  @include flex-direction(row);
+
+  width: 100%;
+  margin-top: 20px;
+
+  &.vertical {
+    margin-top: 0;
+    @include flex-direction(column);
+
+    > div {
+      margin-top: 20px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &.spaced {
+    margin-top: 30px;
+  }
+}
+
+.inline-row {
+  @extend .row;
+
+  @include display-flex(inline-flex);
+}
+
+.full {
+  width: 100%;
+}
+
+.half {
+  width: 50%;
+}
+
+.quarter {
+  width: 25%;
+}
+
+.three-quarter {
+  width: 75%;
+}
+
+.third {
+  width: 33.333%;
+}
+
+.two-thirds {
+  width: 66.666%;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.start {
+  justify-content: flex-start;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.right {
+  @include clearfix();
+
+  float: right;
+}

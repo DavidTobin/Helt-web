@@ -25,9 +25,9 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -37,7 +37,23 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/gym', {
+        templateUrl: 'views/gym.html',
+        controller: 'GymCtrl'
+      })
+      .when('/food', {
+        templateUrl: 'views/food.html',
+        controller: 'FoodCtrl'
+      })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl'
+      })
+      .when('/help', {
+        templateUrl: 'views/help.html',
+        controller: 'HelpCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/dashboard'
       });
   });

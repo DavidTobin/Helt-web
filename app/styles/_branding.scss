@@ -1,0 +1,28 @@
+.logo {
+  @include unstyled-link();
+
+  color: $secondary-color;
+  font-size: $icon-large;
+  font-family: $logo-font;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: default;
+  display: block;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.heart {
+  color: $brand-color;
+
+  &:before {
+    content: "\2665";
+  }
+
+  &.large {
+    font-size: $icon-large;
+  }
+}

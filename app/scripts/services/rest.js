@@ -9,7 +9,6 @@
  */
 angular.module('webApp')
   .factory('$rest', function (Restangular) {
-    console.log(Restangular);
     return Restangular.withConfig(function (RestangularConfigurer) {
       RestangularConfigurer.setBaseUrl('http://api.helt.io');
     });

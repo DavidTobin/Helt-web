@@ -1,0 +1,39 @@
+header {
+  @include clearfix();
+
+  background: $tertiary-color;
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  width: 100% - $sidebar-width;
+
+  ul {
+    margin: 0;
+    list-style-type: none;
+    float: right;
+
+    li {
+      @include inline-block();
+
+      &:hover {
+        @include transition(background 200ms);
+
+        background: lighten($tertiary-color, 5%);
+      }
+
+      &:active,
+      &.active {
+        background: lighten($tertiary-color, 15%);
+      }
+
+      a {
+        @include link-colors($font-color-light, lighten($font-color-light, 10%));
+
+        display: block;
+        padding: 20px;
+        text-transform: uppercase;
+        font-size: $base-font-size - 4px;
+      }
+    }
+  }
+}

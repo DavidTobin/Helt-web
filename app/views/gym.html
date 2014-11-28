@@ -1,0 +1,81 @@
+<h1>Gym Name <button class="right">Add Workout</button></h1>
+
+<hr />
+
+<div class="inline-row">
+  <div class="three-quarter">
+    <div class="three-quarter center">
+      <h1>Performance</h1>
+
+      <hr />
+
+      <div class="row full">
+        <canvas ng-chart ng-chart-data="chartData"></canvas>
+      </div>
+
+      <div class="row vertical full spaced">
+        <div>
+          <h2>Recent</h2>
+
+          <hr />
+        </div>
+
+        <dl ng-repeat="w in work" class="hightlight detail">
+          <dt>{{ w.date | date }}</dt>
+          <dd>{{ w.calories }} calories</dd>
+        </dl>
+      </div>
+
+      <hr />
+
+      <div class="row end">
+        <p><small>Burned <strong>{{ work | sum:'calories' }}</strong> calories</small></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quarter row vertical detail">
+    <div>
+      <h2>Subscription</h2>
+
+      <hr />
+
+      <dl>
+        <dt>Subscription</dt>
+        <dd>Active</dd>
+
+        <dt>Next Renewal</dt>
+        <dd>25th Dec 2015</dd>
+
+        <dt>Cost</dt>
+        <dd>€125</dd>
+      </dl>
+
+      <div class="row end">
+        <button class="unstyled">Cancel</button>
+        <button class="success">Renew Now</button>
+      </div>
+    </div>
+
+    <div>
+      <h2>Plan Details</h2>
+
+      <hr />
+
+      <dl>
+        <dt>Gym</dt>
+        <dd>Off-Peak</dd>
+
+        <dt>Pool</dt>
+        <dd>&cross;</dd>
+
+        <dt>Personal Training</dt>
+        <dd>&cross;</dd>
+      </dl>
+
+      <div class="row end">
+        <button class="success">Upgrade</button>
+      </div>
+    </div>
+  </div>
+</div>

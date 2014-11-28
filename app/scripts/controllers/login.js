@@ -8,10 +8,8 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('LoginCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('LoginCtrl', function ($scope, Token) {
+    Token.post($scope.login).then(function (token) {
+      console.log(token);
+    });
   });

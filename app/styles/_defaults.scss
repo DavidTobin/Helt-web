@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body {
+  background: $background-color;
+  font-family: $base-font;
+  color: $font-color;
+}
+
+a {
+  @include unstyled-link();
+  @include link-colors($font-color, lighten($font-color, 10%), lighten($font-color, 20%));
+
+  font-family: $link-font;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: $base-font-size + 12px;
+}
+
+h2 {
+  font-size: $base-font-size + 6px;
+}
+
+h3 {
+  font-size: $base-font-size + 3px;
+}
+
+h4 {
+  font-size: $base-font-size + 2px;
+}
+
+h5 {
+  font-size: $base-font-size + 1px;
+}
+
+h6 {
+  font-size: $base-font-size;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid lighten($primary-color, 50%);
+
+  &.invert {
+    border-top: 1px solid darken($secondary-color, 50%);
+  }
+}
+
+dl {
+  width: 100%;
+  padding: 0 15px;
+
+  dt, dd {
+    display: inline-block;
+    margin: 0 -2px;
+    margin-top: 5px;
+    width: 50%;
+    font-weight: 300;
+  }
+
+  dt {
+    font-family: $skinny-font;
+    font-weight: 300;
+  }
+
+  dd {
+    text-align: right;
+  }
+}
+
+small {
+  font-size: $base-font-size - 4px;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-height: 100%;
+}
+
+.container {
+  @include box-shadow(0px 1px 1px lighten($primary-color, 40%));
+
+  @extend .row;
+
+  background: $secondary-color;
+  width: 100%;
+  margin: 0;
+}
+
+.section-main {
+  @include inline-block(top);
+
+  width: 100% - $sidebar-width;
+  margin-top: $header-height;
+  overflow-y: auto;
+
+  > div {
+    padding: 40px;
+    overflow-y: auto;
+  }
+}
+
+.detail {
+  background: darken($secondary-color, 4%);
+  padding: 10px 15px;
+}
+
+.hightlight:hover {
+  background: $hightlight-color;
+  color: lighten($font-color, 2%);
+}

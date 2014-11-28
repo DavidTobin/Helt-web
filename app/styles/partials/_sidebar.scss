@@ -1,0 +1,36 @@
+.sidebar {
+  background: $primary-color;
+  width: $sidebar-width;
+  padding: 20px 10px;
+
+  ul {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+
+    li {
+      a {
+        @include link-colors(invert($primary-color), lighten(invert($primary-color), 20%));
+        @include transition(background 200ms);
+
+        display: block;
+        padding: 10px;
+        font-family: $skinny-font;
+        font-size: $base-font-size + 4px;
+        font-weight: 300;
+        border-bottom: 1px solid darken(invert($primary-color), 70%);
+
+        &:hover {
+          background: lighten($primary-color, 5%);
+          border-bottom: 1px solid darken(invert($primary-color), 20%);
+        }
+
+        &:active,
+        &.active {
+          background: lighten($primary-color, 15%);
+        }
+      }
+    }
+  }
+}
