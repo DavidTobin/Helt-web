@@ -8,8 +8,14 @@
  * Factory in the webApp.
  */
 angular.module('webApp')
-  .factory('$rest', function (Restangular) {
+  .factory('$rest', function (Restangular, $config, $rootScope) {
     return Restangular.withConfig(function (RestangularConfigurer) {
-      RestangularConfigurer.setBaseUrl('http://api.helt.io');
+      RestangularConfigurer.setBaseUrl($config.api.url);
+
+      $rootScope.$watch('token', function (token) {
+        RestangularConfigurer.setDefaultHeaders({
+          Authentication: token
+        });
+      })
     });
   });

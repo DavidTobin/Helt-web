@@ -2,17 +2,17 @@
 
 <hr />
 
-<form ng-submit="getToken">
+<form ng-submit="login()">
   <div class="row vertical half center">
     <p class="center"><small>Please enter your login details</small></p>
     <div class="row">
-      <label class="flex-item">Email</label>
-      <input class="flex-item" type="email" ng-model="login.email" placeholder="Email Address" />
+      <label class="full">Email</label>
+      <input class="full" type="email" ng-model="app.login.email" placeholder="Email Address" />
     </div>
 
     <div class="row">
-      <label class="flex-item">Password</label>
-      <input class="flex-item" type="password" ng-model="login.password" placeholder="Password" />
+      <label class="full">Password</label>
+      <input class="full" type="password" ng-model="app.login.password" placeholder="Password" />
     </div>
 
     <div class="row end">

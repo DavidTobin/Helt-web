@@ -8,6 +8,8 @@
  * Service in the webApp.
  */
 angular.module('webApp')
-  .service('GymWork', function ($rest) {
-    return $rest.service('gym/work');
+  .service('GymWork', function ($rest, $rootScope) {
+    var service = $rest.service('gym/work');
+
+    return service;
   });

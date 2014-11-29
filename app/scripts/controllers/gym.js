@@ -8,7 +8,7 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('GymCtrl', function ($scope, GymWork) {
+  .controller('GymCtrl', function ($scope, $rootScope, GymWork) {
     function buildChartDataFormat (data) {
       var chartData = {},
       months = [
@@ -57,7 +57,9 @@ angular.module('webApp')
       return chartData;
     }
 
-    GymWork.getList().then(function (work) {
+    GymWork.getList(null, {
+      Authenticate: $rootScope.token
+    }).then(function (work) {
       $scope.work = work;
       $scope.chartData = buildChartDataFormat(work);
     });

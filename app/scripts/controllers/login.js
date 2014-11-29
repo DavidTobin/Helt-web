@@ -8,8 +8,16 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('LoginCtrl', function ($scope, Token) {
-    Token.post($scope.login).then(function (token) {
-      console.log(token);
-    });
+  .controller('LoginCtrl', function ($scope, $location) {
+    function redirect (token) {
+      $location.path('/dashboard');
+    }
+
+    function login () {
+      $scope.app
+        .getToken($scope.app.login)
+        .then(redirect);
+    }
+
+    $scope.login = login;
   });
