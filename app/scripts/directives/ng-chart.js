@@ -31,15 +31,15 @@ angular.module('webApp')
         context = element[0].getContext('2d');
 
         // Watch for changes to the data and redraw chart if changes
-        // scope.$watch(attrs.ngChartData, function (data) {
-        //   if (!data) {
-        //     return false;
-        //   }
+        scope.$watch(attrs.ngChartData, function (data) {
+          if (!data) {
+            return false;
+          }
 
-        //   new Chart(context).Line(data, {
-        //     scaleShowGridLines : true
-        //   });
-        // });
+          new Chart(context).Line(data, {
+            scaleShowGridLines : true
+          });
+        });
       }
     };
   });

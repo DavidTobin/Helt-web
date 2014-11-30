@@ -31,6 +31,21 @@
           background: lighten($primary-color, 15%);
         }
       }
+
+      &.submenu {
+        ul {
+          width: 100%;
+          margin: 0;
+
+          li {
+            background: lighten($primary-color, 10%);
+
+            a {
+              font-size: $base-font-size - 2px;
+            }
+          }
+        }
+      }
     }
   }
 }

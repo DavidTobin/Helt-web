@@ -8,7 +8,19 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('GymCtrl', function ($scope, $rootScope, GymWork) {
+  .controller('GymCtrl', function ($scope, $rootScope, User) {
+    function getGymWork () {
+      User
+        .one($rootScope.user.id)
+        .one('gym', $rootScope.user.gymId)
+        .all('work')
+        .getList()
+        .then(function (work) {
+          $scope.work = work;
+          $scope.chartData = buildChartDataFormat(work);
+        });
+    }
+
     function buildChartDataFormat (data) {
       var chartData = {},
       months = [
@@ -57,10 +69,11 @@ angular.module('webApp')
       return chartData;
     }
 
-    GymWork.getList(null, {
-      Authenticate: $rootScope.token
-    }).then(function (work) {
-      $scope.work = work;
-      $scope.chartData = buildChartDataFormat(work);
+    if ($rootScope.user) {
+      getGymWork();
+    }
+
+    $rootScope.$on('auth:user', function (user) {
+      getGymWork();
     });
   });

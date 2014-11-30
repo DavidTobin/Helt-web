@@ -18,11 +18,15 @@ angular.module('webApp')
 
         $rootScope.token = token.token;
 
-        document.querySelector('#token').value = token;
-
         if (token.token) {
           $cookies.token = token.token;
         }
+
+        if (token.user.id) {
+          $cookies.ident = token.user.id;
+        }
+
+        $rootScope.$emit('auth:token', token.token);
 
         defer.resolve(token);
       });
@@ -42,8 +46,15 @@ angular.module('webApp')
     };
 
     if ($cookies.token) {
-      User.getMe().then(function (user) {
-        console.log(user);
-      });
+      $rootScope.$emit('auth:token', $cookies.token);
+
+      if ($cookies.ident) {
+        $scope.app.user = User.one($cookies.ident).get().then(function (user) {
+          $scope.app.user = user;
+          $rootScope.user = user;
+
+          $rootScope.$emit('auth:user', user);
+        });
+      }
     }
   });

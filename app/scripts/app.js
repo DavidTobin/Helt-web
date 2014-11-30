@@ -24,10 +24,6 @@ angular
     'restangular'
   ])
   .config(function ($routeProvider, $httpProvider) {
-    $httpProvider.defaults.headers = {
-      "Authentication": document.querySelector('#token').value
-    };
-
     $routeProvider
       .when('/home', {
         templateUrl: 'views/home.html',

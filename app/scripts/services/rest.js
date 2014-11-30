@@ -9,13 +9,22 @@
  */
 angular.module('webApp')
   .factory('$rest', function (Restangular, $config, $rootScope) {
-    return Restangular.withConfig(function (RestangularConfigurer) {
+    var $rest = Restangular.withConfig(function (RestangularConfigurer) {
       RestangularConfigurer.setBaseUrl($config.api.url);
-
-      $rootScope.$watch('token', function (token) {
-        RestangularConfigurer.setDefaultHeaders({
-          Authentication: token
-        });
-      })
     });
+
+    $rootScope.$on('auth:token', function (e, token) {
+      $rest.setFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig) {
+        return {
+          element: element,
+          params: params,
+          headers: _.extend(headers, {
+            Authorization: btoa(token)
+          }),
+          httpConfig: httpConfig
+        };
+      });
+    });
+
+    return $rest;
   });

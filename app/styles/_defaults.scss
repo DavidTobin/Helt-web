@@ -125,3 +125,12 @@ small {
   background: $hightlight-color;
   color: lighten($font-color, 2%);
 }
+
+.hide {
+  display: none !important;
+}
+
+.hide-animate {
+  height: 0 !important;
+  overflow: hidden;
+}
