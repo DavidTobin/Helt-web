@@ -38,10 +38,15 @@
           margin: 0;
 
           li {
-            background: lighten($primary-color, 10%);
-
             a {
+              @include link-colors(darken(invert($primary-color), 10%), lighten(invert($primary-color), 10%));
+
+              background: lighten($primary-color, 10%);
               font-size: $base-font-size - 2px;
+
+              &:hover {
+                background: lighten($primary-color, 15%);
+              }
             }
           }
         }

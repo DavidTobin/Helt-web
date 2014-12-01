@@ -13,7 +13,8 @@
 
   <li class="submenu hide-animate" data-menu="gym-child">
     <ul>
-      <li><a href="/#/gym/">Find a Gym</a></li>
+      <li ng-if="!user.gymId"><a href="/#/gym/">Find a Gym</a></li>
+      <li ng-if="app.user.gymId"><a href="/#/gym/{{ app.user.gymId }}"></a>
     </ul>
   </li>
 

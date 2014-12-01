@@ -13,22 +13,26 @@ angular.module('webApp')
       var defer = $q.defer();
 
       Authentication.post(login).then(function (token, callback) {
-        $scope.app.user   = token.user;
-        $scope.app.token  = token.token;
+        if (token.user) {
+          $scope.app.user   = token.user;
+          $scope.app.token  = token.token;
 
-        $rootScope.token = token.token;
+          $rootScope.token = token.token;
 
-        if (token.token) {
-          $cookies.token = token.token;
+          if (token.token) {
+            $cookies.token = token.token;
+          }
+
+          if (token.user.id) {
+            $cookies.ident = token.user.id;
+          }
+
+          $rootScope.$emit('auth:token', token.token);
+
+          defer.resolve(token);
+        } else {
+          defer.reject();
         }
-
-        if (token.user.id) {
-          $cookies.ident = token.user.id;
-        }
-
-        $rootScope.$emit('auth:token', token.token);
-
-        defer.resolve(token);
       });
 
       return defer.promise;
@@ -50,10 +54,16 @@ angular.module('webApp')
 
       if ($cookies.ident) {
         $scope.app.user = User.one($cookies.ident).get().then(function (user) {
-          $scope.app.user = user;
-          $rootScope.user = user;
+          if (!user) {
+            $cookies.token = null;
+            $cookies.ident = null;
+          } else {
+            console.log(user);
+            $scope.app.user = user;
+            $rootScope.user = user;
 
-          $rootScope.$emit('auth:user', user);
+            $rootScope.$emit('auth:user', user);
+          }
         });
       }
     }
