@@ -9,6 +9,16 @@
  */
 angular.module('webApp')
   .controller('GymCtrl', function ($scope, $rootScope, User) {
+    function getGym () {
+      User
+        .one($rootScope.user.id)
+        .one('gym', $rootScope.user.gymId)
+        .get()
+        .then(function (gym) {
+          $scope.gym = gym;
+        });
+    }
+
     function getGymWork () {
       User
         .one($rootScope.user.id)
@@ -43,7 +53,7 @@ angular.module('webApp')
         datasets: [
           {
             label: ['You'],
-            data: Array.apply(null, Array(12)).map(function () {
+            data: new Array.apply(null, new Array(12)).map(function () {
               return 0;
             }),
             fillColor: 'rgba(0, 0, 0, 0.85)'
@@ -51,7 +61,7 @@ angular.module('webApp')
 
           {
             label: ['Target'],
-            data: Array.apply(null, Array(12)).map(function () {
+            data: new Array.apply(null, new Array(12)).map(function () {
               return 3000;
             }),
             fillColor: 'rgba(0, 200, 0, 0.50)'
@@ -70,10 +80,12 @@ angular.module('webApp')
     }
 
     if ($rootScope.user) {
+      getGym();
       getGymWork();
     }
 
-    $rootScope.$on('auth:user', function (user) {
+    $rootScope.$on('auth:user', function () {
+      getGym();
       getGymWork();
     });
   });

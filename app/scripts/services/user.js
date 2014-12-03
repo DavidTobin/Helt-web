@@ -8,7 +8,7 @@
  * Service in the webApp.
  */
 angular.module('webApp')
-  .service('User', function ($rest, $http, $config) {
+  .service('User', function ($rest) {
     var User = $rest.service('user');
 
     return User;

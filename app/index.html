@@ -25,13 +25,6 @@
       </aside>
 
       <section class="section-main">
-        <header>
-          <ul class="nav" ng-cloak>
-            <li ng-if="!app.user"><a href="/#/login">Login</a></li>
-            <li ng-if="app.user"><a href="/#/account">{{ app.user.name }}</a></li>
-          </ul>
-        </header>
-
         <div ng-view=""></div>
       </section>
     </div>
@@ -70,7 +63,6 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/home.js"></script>
         <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/login.js"></script>
         <script src="scripts/services/user.js"></script>
         <script src="scripts/services/rest.js"></script>
         <script src="scripts/controllers/gym.js"></script>
@@ -85,6 +77,9 @@
         <script src="scripts/services/authentication.js"></script>
         <script src="scripts/services/config.js"></script>
         <script src="scripts/directives/ng-menu.js"></script>
+        <script src="scripts/controllers/authentication/logout.js"></script>
+        <script src="scripts/controllers/gym/find.js"></script>
+        <script src="scripts/controllers/authentication/login.js"></script>
         <!-- endbuild -->
 
   <!--<script>

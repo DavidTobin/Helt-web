@@ -8,39 +8,15 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('HomeCtrl', function ($scope, User) {
-    console.log(User);
-
-    function createUser () {
-      delete $scope.user.id;
-
-      $scope.user = User.post($scope.user).$object;
+  .controller('HomeCtrl', function ($scope, $location, $rootScope) {
+    function goToDashboard () {
+      $location.path('/dashboard');
     }
 
-    function updateUser () {
-      var user = User.one($scope.user.id).get().then(function (user) {
-        for (var i in $scope.user) {
-          user[i] = $scope.user[i];
-        }
-
-        user.put();
-      });
+    if ($rootScope.user) {
+      goToDashboard();
     }
-
-    function getUser () {
-      if (!$scope.user.id) {
-        return;
-      }
-
-      $scope.user = User.one($scope.user.id).get().$object;
-    }
-
-    $scope.user = {
-      name: 'David',
-      email: 'dtobin08@gmail.com'
-    };
-
-    $scope.createUser = createUser;
-    $scope.getUser    = getUser;
-    $scope.updateUser = updateUser;
+    $rootScope.$on('auth:user', function () {
+      goToDashboard();
+    });
   });

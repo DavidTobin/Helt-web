@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name webApp.controller:LoginCtrl
+ * @name webApp.controller:AuthenticationLoginCtrl
  * @description
- * # LoginCtrl
+ * # AuthenticationLoginCtrl
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('LoginCtrl', function ($scope, $location) {
+  .controller('AuthenticationLoginCtrl', function ($scope, $location) {
     function redirect (token) {
       $location.path('/dashboard');
     }

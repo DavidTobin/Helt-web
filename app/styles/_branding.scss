@@ -17,12 +17,64 @@
 
 .heart {
   color: $brand-color;
+  -webkit-font-smoothing: antialiased;
 
   &:before {
     content: "\2665";
   }
 
+  &.beat {
+    &:hover {
+      @include animation(heartbeat 0.5s linear infinite);
+    }
+
+    &:active {
+      @include animation(vanish 0.5s linear);
+    }
+  }
+
   &.large {
     font-size: $icon-large;
+  }
+}
+
+@include keyframes("heartbeat") {
+  0% {
+    @include transform(scale(1.1));
+  }
+
+  50% {
+    @include transform(scale(0.8));
+  }
+
+  100% {
+    @include transform(scale(1));
+  }
+}
+
+@include keyframes("vanish") {
+  0% {
+    @include transform(scale(1.1));
+    @include opacity(1);
+  }
+
+  25% {
+    @include transform(scale(20));
+    @include opacity(0.8);
+  }
+
+  50% {
+    @include transform(scale(50));
+    @include opacity(0.4);
+  }
+
+  75% {
+    @include transform(scale(75));
+    @include opacity(0.2);
+  }
+
+  100% {
+    @include transform(scale(100));
+    @include opacity(0);
   }
 }

@@ -1,25 +1,54 @@
 <a href="/#/home" class="logo">
-  <i class="heart large"></i> Helt
+  <i class="heart beat large"></i> Helt
 </a>
 
 <ul>
-  <li>
+  <li class="user" ng-if="app.user.id">
+    <a href="javascript://" ng-menu="user-child">{{ app.user.name }}</a>
+  </li>
+
+  <li class="submenu hide-animate" data-menu="user-child">
+    <ul>
+      <li><a href="/#/user/account">Account</a></li>
+      <li><a href="/#/user/subscriptions">Subscriptions</a></li>
+      <li><a href="/#/authentication/logout">Logout</a></li>
+    </ul>
+  </li>
+
+  <li class="user" ng-if="!app.user.id">
+    <a href="/#/authentication/login">Login</a>
+  </li>
+
+  <li ng-if="!app.user.id">
+    <a href="/#/user/register">Register</a>
+  </li>
+
+  <li ng-if="app.user.id">
     <a href="/#/dashboard">Dashboard</a>
   </li>
 
-  <li>
+  <li ng-if="app.user.id">
     <a href="javascript://" ng-menu="gym-child">Gym</a>
   </li>
 
   <li class="submenu hide-animate" data-menu="gym-child">
     <ul>
-      <li ng-if="!user.gymId"><a href="/#/gym/">Find a Gym</a></li>
-      <li ng-if="app.user.gymId"><a href="/#/gym/{{ app.user.gymId }}"></a>
+      <li ng-if="!app.user.gymId"><a href="/#/gym/find">Find a Gym</a></li>
+      <li ng-if="app.user.gymId"><a href="/#/user/{{ app.user.id }}/gym/{{ app.user.gymId }}">My Gym</a>
     </ul>
   </li>
 
-  <li>
-    <a href="/#/food">Food</a>
+  <li ng-if="app.user.id" ng-menu="food-child">
+    <a href="javascript://">Food</a>
+  </li>
+
+  <li class="submenu hide-animate" data-menu="food-child">
+    <ul>
+      <li><a href="/#/food">Overview</a></li>
+      <li><a href="/#/food/record">Record Food</a></li>
+      <li><a href="/#/food/macros">Macros</a></li>
+      <li><a href="/#/food/macros/adjust">Adjust Macros</a></li>
+    </ul>
   </li>
 
   <li>

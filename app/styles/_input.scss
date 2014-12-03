@@ -9,7 +9,8 @@ input {
   outline: none;
 }
 
-button {
+button,
+.button {
   @include transition(background 500ms);
 
   background: $tertiary-color;
@@ -21,6 +22,19 @@ button {
 
   &:hover {
     background: lighten($tertiary-color, 10%);
+  }
+
+  &.xlarge {
+    padding: 25px 85px;
+    font-size: $base-font-size + 12px;
+  }
+
+  .center {
+    margin: 0 auto;
+  }
+
+  &.block {
+    display: block;
   }
 
   &:active,

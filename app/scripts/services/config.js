@@ -13,5 +13,5 @@ angular.module('webApp')
       api: {
         url: 'http://api.helt.io'
       }
-    }
+    };
   });

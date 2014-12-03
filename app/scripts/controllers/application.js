@@ -12,7 +12,7 @@ angular.module('webApp')
     function getToken (login) {
       var defer = $q.defer();
 
-      Authentication.post(login).then(function (token, callback) {
+      Authentication.post(login).then(function (token) {
         if (token.user) {
           $scope.app.user   = token.user;
           $scope.app.token  = token.token;

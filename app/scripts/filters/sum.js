@@ -10,10 +10,12 @@
  */
 angular.module('webApp')
   .filter('sum', function () {
-    return function (input, param, s) {
+    return function (input, param) {
       var total = 0;
 
-      if (!input) return 0;
+      if (!input) {
+        return 0;
+      }
 
       input.forEach(function (item) {
         total += parseInt(item[param]) || 0;

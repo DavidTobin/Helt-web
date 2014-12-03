@@ -23,9 +23,9 @@ angular
     'ngTouch',
     'restangular'
   ])
-  .config(function ($routeProvider, $httpProvider) {
+  .config(function ($routeProvider) {
     $routeProvider
-      .when('/home', {
+      .when('/', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl'
       })
@@ -33,11 +33,7 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
-      })
-      .when('/gym', {
+      .when('/user/:userId/gym/:gymId', {
         templateUrl: 'views/gym.html',
         controller: 'GymCtrl'
       })
@@ -53,7 +49,19 @@ angular
         templateUrl: 'views/help.html',
         controller: 'HelpCtrl'
       })
+      .when('/authentication/logout', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'AuthenticationLogoutCtrl'
+      })
+      .when('/gym/find', {
+        templateUrl: 'views/gym/find.html',
+        controller: 'GymFindCtrl'
+      })
+      .when('/authentication/login', {
+        templateUrl: 'views/authentication/login.html',
+        controller: 'AuthenticationLoginCtrl'
+      })
       .otherwise({
-        redirectTo: '/dashboard'
+        redirectTo: '/'
       });
   });

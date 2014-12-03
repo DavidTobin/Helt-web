@@ -1,0 +1,24 @@
+<section class="standard">
+  <h1>Login</h1>
+
+  <hr />
+
+  <form ng-submit="login()">
+    <div class="row vertical half center">
+      <p class="center"><small>Please enter your login details</small></p>
+      <div class="row">
+        <label class="full">Email</label>
+        <input class="full" type="email" ng-model="app.login.email" placeholder="Email Address" />
+      </div>
+
+      <div class="row">
+        <label class="full">Password</label>
+        <input class="full" type="password" ng-model="app.login.password" placeholder="Password" />
+      </div>
+
+      <div class="row end">
+        <button type="submit">Login</button>
+      </div>
+    </div>
+  </form>
+</section>

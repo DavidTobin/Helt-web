@@ -8,6 +8,6 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('AboutCtrl', function () {
 
   });

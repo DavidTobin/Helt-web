@@ -32,6 +32,25 @@
         }
       }
 
+      &.user {
+        margin-bottom: 30px;
+
+        a {
+          @include link-colors($primary-color, lighten($primary-color, 20%));
+
+          background: invert($primary-color);
+          border-bottom: 1px solid darken($primary-color, 70%);
+
+          &:hover {
+            background: lighten(invert($primary-color), 5%);
+          }
+        }
+
+        &.active {
+          margin-bottom: 0;
+        }
+      }
+
       &.submenu {
         ul {
           width: 100%;

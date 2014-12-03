@@ -53,7 +53,7 @@ hr {
   border-top: 1px solid lighten($primary-color, 50%);
 
   &.invert {
-    border-top: 1px solid darken($secondary-color, 50%);
+    border-top: 1px solid contrast-color(lighten($secondary-color, 50%));
   }
 }
 
@@ -107,11 +107,9 @@ small {
   @include inline-block(top);
 
   width: 100% - $sidebar-width;
-  margin-top: $header-height;
   overflow-y: auto;
 
   > div {
-    padding: 40px;
     overflow-y: auto;
   }
 }
@@ -133,4 +131,14 @@ small {
 .hide-animate {
   height: 0 !important;
   overflow: hidden;
+}
+
+.standard {
+  padding: 40px;
+}
+
+.page-section {
+  background: $tertiary-color;
+  color: $font-color-light;
+  padding: 40px;
 }

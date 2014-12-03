@@ -1,3 +1,5 @@
+/* global _ */
+
 'use strict';
 
 /**

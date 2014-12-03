@@ -13,8 +13,7 @@ angular.module('webApp')
       template: '<canvas></canvas>',
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        var data = scope[attrs.ngChartData] || false,
-        context;
+        var context;
 
         // Remove if not a canvas element
         if (element[0].nodeName !== 'CANVAS') {
@@ -36,7 +35,7 @@ angular.module('webApp')
             return false;
           }
 
-          new Chart(context).Line(data, {
+          new window.Chart(context).Line(data, {
             scaleShowGridLines : true
           });
         });
