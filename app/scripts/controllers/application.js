@@ -58,7 +58,6 @@ angular.module('webApp')
             $cookies.token = null;
             $cookies.ident = null;
           } else {
-            console.log(user);
             $scope.app.user = user;
             $rootScope.user = user;
 

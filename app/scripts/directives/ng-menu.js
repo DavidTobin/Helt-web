@@ -14,7 +14,7 @@ angular.module('webApp')
         var subElement = angular.element(document.querySelector('[data-menu="' + attrs.ngMenu + '"]'));
 
         element[0].addEventListener('click', function () {
-          element.parent().toggleClass('active');
+          element.toggleClass('active');
           subElement.toggleClass('hide-animate');
         });
       }

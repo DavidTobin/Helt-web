@@ -61,6 +61,34 @@ angular
         templateUrl: 'views/authentication/login.html',
         controller: 'AuthenticationLoginCtrl'
       })
+      .when('/user/register', {
+        templateUrl: 'views/user/register.html',
+        controller: 'UserRegisterCtrl'
+      })
+      .when('/user/:userId/workout', {
+        templateUrl: 'views/user/:userid/workout.html',
+        controller: 'UserUseridWorkoutCtrl'
+      })
+      .when('/user/:userId/gym/:gymId/plan', {
+        templateUrl: 'views/user/:userid/gym/:gymid/plan.html',
+        controller: 'UserUseridGymGymidPlanCtrl'
+      })
+      .when('/user/:userId/food', {
+        templateUrl: 'views/user/:userid/food.html',
+        controller: 'UserUseridFoodCtrl'
+      })
+      .when('/user/:userId/food/create', {
+        templateUrl: 'views/user/:userid/food/create.html',
+        controller: 'UserUseridFoodCreateCtrl'
+      })
+      .when('/user/:userId/food/macros', {
+        templateUrl: 'views/user/:userid/food/macros.html',
+        controller: 'UserUseridFoodMacrosCtrl'
+      })
+      .when('/user/:userId/food/macros/update', {
+        templateUrl: 'views/user/:userid/food/macros/update.html',
+        controller: 'UserUseridFoodMacrosUpdateCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

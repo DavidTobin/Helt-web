@@ -53,7 +53,7 @@ angular.module('webApp')
         datasets: [
           {
             label: ['You'],
-            data: new Array.apply(null, new Array(12)).map(function () {
+            data: Array.apply(null, Array(12)).map(function () {
               return 0;
             }),
             fillColor: 'rgba(0, 0, 0, 0.85)'
@@ -61,7 +61,7 @@ angular.module('webApp')
 
           {
             label: ['Target'],
-            data: new Array.apply(null, new Array(12)).map(function () {
+            data: Array.apply(null, Array(12)).map(function () {
               return 3000;
             }),
             fillColor: 'rgba(0, 200, 0, 0.50)'

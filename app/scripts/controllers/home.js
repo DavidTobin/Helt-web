@@ -9,14 +9,5 @@
  */
 angular.module('webApp')
   .controller('HomeCtrl', function ($scope, $location, $rootScope) {
-    function goToDashboard () {
-      $location.path('/dashboard');
-    }
 
-    if ($rootScope.user) {
-      goToDashboard();
-    }
-    $rootScope.$on('auth:user', function () {
-      goToDashboard();
-    });
   });

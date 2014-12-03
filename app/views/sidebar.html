@@ -2,9 +2,9 @@
   <i class="heart beat large"></i> Helt
 </a>
 
-<ul>
-  <li class="user" ng-if="app.user.id">
-    <a href="javascript://" ng-menu="user-child">{{ app.user.name }}</a>
+<ul ng-route-watch>
+  <li class="user" ng-if="app.user.id" ng-menu="user-child">
+    <a href="javascript://">{{ app.user.name }}</a>
   </li>
 
   <li class="submenu hide-animate" data-menu="user-child">
@@ -15,26 +15,35 @@
     </ul>
   </li>
 
-  <li class="user" ng-if="!app.user.id">
+  <li class="user" ng-if="!app.user.id" ng-class="{'no-space': !app.user.id}">
     <a href="/#/authentication/login">Login</a>
   </li>
 
-  <li ng-if="!app.user.id">
+  <li class="user" ng-if="!app.user.id">
     <a href="/#/user/register">Register</a>
+  </li>
+
+  <li>
+    <a href="/#/">Home</a>
   </li>
 
   <li ng-if="app.user.id">
     <a href="/#/dashboard">Dashboard</a>
   </li>
 
-  <li ng-if="app.user.id">
-    <a href="javascript://" ng-menu="gym-child">Gym</a>
+  <li ng-if="app.user.id" ng-menu="gym-child">
+    <a href="javascript://">Gym</a>
   </li>
 
   <li class="submenu hide-animate" data-menu="gym-child">
-    <ul>
-      <li ng-if="!app.user.gymId"><a href="/#/gym/find">Find a Gym</a></li>
-      <li ng-if="app.user.gymId"><a href="/#/user/{{ app.user.id }}/gym/{{ app.user.gymId }}">My Gym</a>
+    <ul ng-if="!app.user.gymId">
+      <li><a href="/#/gym/find">Find a Gym</a></li>
+    </ul>
+
+    <ul ng-if="app.user.gymId">
+      <li><a href="/#/user/{{ app.user.id }}/gym/{{ app.user.gymId }}">My Gym</a>
+      <li><a href="/#/user/{{ app.user.id }}/workout/">Add Workout</a></li>
+      <li><a href="/#/user/{{app.user.id }}/gym/{{ app.user.gymId }}/plan">Workout Plan</a></li>
     </ul>
   </li>
 
@@ -44,10 +53,10 @@
 
   <li class="submenu hide-animate" data-menu="food-child">
     <ul>
-      <li><a href="/#/food">Overview</a></li>
-      <li><a href="/#/food/record">Record Food</a></li>
-      <li><a href="/#/food/macros">Macros</a></li>
-      <li><a href="/#/food/macros/adjust">Adjust Macros</a></li>
+      <li><a href="/#/user/{{ app.user.id }}/food">Overview</a></li>
+      <li><a href="/#/user/{{ app.user.id }}/food/create">Record Food</a></li>
+      <li><a href="/#/user/{{ app.user.id }}/food/macros">Macros</a></li>
+      <li><a href="/#/user/{{ app.user.id }}/food/macros/update">Adjust Macros</a></li>
     </ul>
   </li>
 

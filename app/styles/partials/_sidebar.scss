@@ -25,10 +25,17 @@
           background: lighten($primary-color, 5%);
           border-bottom: 1px solid darken(invert($primary-color), 20%);
         }
+      }
 
-        &:active,
-        &.active {
+      &.active {
+        a {
           background: lighten($primary-color, 15%);
+        }
+      }
+
+      &[ng-menu].active {
+        a {
+          background: lighten($primary-color, 5%);
         }
       }
 
@@ -46,8 +53,15 @@
           }
         }
 
-        &.active {
+        &.active,
+        &.no-space {
           margin-bottom: 0;
+        }
+
+        &.active {
+          a {
+            background: lighten(invert($primary-color), 15%);
+          }
         }
       }
 
@@ -65,6 +79,12 @@
 
               &:hover {
                 background: lighten($primary-color, 15%);
+              }
+            }
+
+            &.active {
+              a {
+                background: lighten($primary-color, 25%) !important;
               }
             }
           }
