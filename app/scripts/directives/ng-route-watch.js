@@ -20,7 +20,6 @@ angular.module('webApp')
             if (nextChild.classList.contains('submenu')) {
               traverse(nextChild.children[0].children[0], next);
             } else if (nextChild.nodeName === 'LI') {
-              console.log(nextChild);
               if (nextChild.children[0].href.replace(window.location.origin + '/#', '').match(next.$$route.regexp)) {
                 nextChild.classList.add('active');
               } else {

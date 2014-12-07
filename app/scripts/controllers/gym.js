@@ -8,7 +8,7 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('GymCtrl', function ($scope, $rootScope, User) {
+  .controller('GymCtrl', function ($scope, $rootScope, $filter, User) {
     function getGym () {
       User
         .one($rootScope.user.id)
@@ -62,7 +62,10 @@ angular.module('webApp')
           {
             label: ['Target'],
             data: Array.apply(null, Array(12)).map(function () {
-              return 3000;
+              var d = new Date(),
+              daysInMonth = new Date(d.getFullYear(), d.getMonth(), 0).getDate();
+              console.log(daysInMonth);
+              return $filter('caloricRequirement')($scope.app.user) * daysInMonth;
             }),
             fillColor: 'rgba(0, 200, 0, 0.50)'
           }

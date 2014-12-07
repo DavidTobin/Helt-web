@@ -81,6 +81,7 @@ dl {
 
 small {
   font-size: $base-font-size - 4px;
+  color: lighten($font-color, 50%);
 }
 
 .page {
@@ -141,4 +142,16 @@ small {
   background: $tertiary-color;
   color: $font-color-light;
   padding: 40px;
+}
+
+div, p {
+  &.success {
+    @include box-shadow(0px 1px 1px $primary-color);
+
+    font-family: $skinny-font;
+    font-weight: 300;
+    background: $success-color;
+    color: $secondary-color;
+    padding: 10px 15px;
+  }
 }

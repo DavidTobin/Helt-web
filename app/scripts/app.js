@@ -89,6 +89,14 @@ angular
         templateUrl: 'views/user/:userid/food/macros/update.html',
         controller: 'UserUseridFoodMacrosUpdateCtrl'
       })
+      .when('/user/account', {
+        templateUrl: 'views/user/account.html',
+        controller: 'UserAccountCtrl'
+      })
+      .when('/user/subscriptions', {
+        templateUrl: 'views/user/subscriptions.html',
+        controller: 'UserSubscriptionsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

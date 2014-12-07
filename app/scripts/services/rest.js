@@ -13,6 +13,9 @@ angular.module('webApp')
   .factory('$rest', function (Restangular, $config, $rootScope) {
     var $rest = Restangular.withConfig(function (RestangularConfigurer) {
       RestangularConfigurer.setBaseUrl($config.api.url);
+      RestangularConfigurer.setDefaultHttpFields({
+        cache: true
+      });
     });
 
     $rootScope.$on('auth:token', function (e, token) {

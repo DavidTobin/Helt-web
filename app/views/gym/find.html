@@ -1,3 +1,11 @@
 <section class="standard">
-	<p>This is the gym/find view.</p>
+  <h1>Gyms</h1>
+
+  <hr />
+
+	<div class="row" ng-repeat="gym in gyms">
+    <div class="third">
+      <h2>{{ gym.name }}</h2>
+    </div>
+  </div>
 </section>

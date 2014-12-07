@@ -1,11 +1,16 @@
+@import "base";
+
 .page-section {
+  .logo {
+    transform: scale(1.5);
+  }
+
 	&.who-are-we {
 
 	}
 
 	&.what-we-do {
 		background: linear-gradient(to bottom right, color-stops(#525064, #5A3164 25%, #8C633F));
-		color: lighten($font-color-light, 50%);
 		min-height: 500px;
 
 		h1 {
@@ -32,5 +37,9 @@
 		background: $secondary-color;
 		color: $font-color;
 		min-height: 400px;
+
+    h1 {
+      text-align: center;
+    }
 	}
 }

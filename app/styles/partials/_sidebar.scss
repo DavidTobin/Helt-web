@@ -53,9 +53,9 @@
           }
         }
 
-        &.active,
-        &.no-space {
-          margin-bottom: 0;
+        &.no-space,
+        &.active[ng-menu] {
+          margin-bottom: 0 !important;
         }
 
         &.active {

@@ -8,10 +8,6 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('GymFindCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('GymFindCtrl', function ($scope, Gym) {
+    $scope.gyms = Gym.getList().$object;
   });

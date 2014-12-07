@@ -1,1 +1,66 @@
-<p>This is the user/register view.</p>
+<section class="standard">
+  <h1>Registration</h1>
+
+  <hr />
+
+  <form ng-submit="doRegister()">
+    <div class="row vertical half center">
+      <div class="row">
+        <h2>Personal Details</h2>
+
+        <hr />
+      </div>
+
+      <div class="row">
+        <label>Name</label>
+        <input class="full" type="text" ng-model="register.name" placeholder="Tony Montana" />
+      </div>
+
+      <div class="row">
+        <label>Email</label>
+        <input class="full" type="email" ng-model="register.email" placeholder="tony.montana@miami.com" />
+      </div>
+
+      <div class="row">
+        <label>Password</label>
+        <input class="full" type="password" ng-model="register.password" placeholder="supersafepassword" />
+      </div>
+
+      <div class="row">
+        <label>Confirm Password</label>
+        <input class="full" type="password" ng-model="confirmPassword" placeholder="supersafepassword" />
+      </div>
+
+      <div class="row">
+        <hr class="full" />
+      </div>
+
+      <div class="row spaced">
+        <h2>Credit Card <small>You will not be charged for the first month</small></h2>
+      </div>
+
+      <div class="row">
+        <label>Card Number</label>
+        <input class="full" type="text" ng-model="register.card.number" placeholder="xxxx xxxx xxxx xxxx" />
+      </div>
+
+      <div class="row">
+        <div class="row half">
+          <label class="third">Expires</label>
+
+          <input class="two-thirds" type="text" placeholder="01/14" ng-model="register.card.expiry" />
+        </div>
+
+        <div class="row half">
+          <label class="third">CCV</label>
+
+          <input class="two-thirds" type="text" placeholder="000" ng-model="register.card.ccv" />
+        </div>
+      </div>
+
+      <div class="row end">
+        <button type="submit" class="success">Register</button>
+      </div>
+    </div>
+  </form>
+</section>

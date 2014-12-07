@@ -8,10 +8,23 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('UserRegisterCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('UserRegisterCtrl', function ($scope, $location, User) {
+    if ($scope.app.user) {
+      $location.path('/dashboard');
+    }
+
+    function register () {
+      User
+        .post($scope.register)
+        .then(function (user) {
+          $scope.app.getToken({
+            email: user.email,
+            password: $scope.register.password
+          }).then(function () {
+            $location.path('/dashboard');
+          });
+        });
+    }
+
+    $scope.doRegister = register;
   });

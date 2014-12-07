@@ -1,0 +1,96 @@
+<section class="standard">
+  <h1>Account</h1>
+
+  <hr />
+
+  <form ng-submit="updateUser()">
+    <div class="row half center">
+      <label>Name</label>
+      <input class="half" type="text" ng-model="app.user.name" disabled="disabled">
+    </div>
+
+    <div class="row half center">
+      <label>Email Address</label>
+      <input class="half" type="text" ng-model="app.user.email" disabled="disabled">
+    </div>
+
+    <div class="row vertical half center spaced">
+      <h2>Measurements</h2>
+
+      <p><small>We need the following information to calculate your weight loss/gain.</small></p>
+    </div>
+
+    <div class="row half center">
+      <label>Gender</label>
+
+      <div class="half">
+        <label>Male</label>
+        <input type="radio" ng-model="app.user.gender" value="male" />
+
+        <div class="right">
+          <label>Female</label>
+          <input type="radio" ng-model="app.user.gender" value="female" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row half center">
+      <label>
+        Height
+        <small class="block">(cm)</small>
+      </label>
+
+      <input class="half" type="text" ng-model="app.user.height" />
+    </div>
+
+    <div class="row half center">
+      <label>Age</label>
+
+      <input class="half" type="text" ng-model="app.user.age" />
+    </div>
+
+    <div class="row half center">
+      <label>Weight <small class="block">(Pounds)</small></label>
+
+      <input class="half" type="text" ng-model="app.user.weight" />
+    </div>
+
+    <div class="row half center">
+      <label>Energy Expenditure</label>
+
+      <div class="row vertical half">
+        <select class="full" ng-model="energyExpenditureOption" ng-options="expenditure.name for expenditure in energyExpenditureOptions"></select>
+      </div>
+    </div>
+
+    <div class="row half center">
+      <label>
+        Weight Goal
+        <small class="block">(Pounds Per Week)</small>
+      </label>
+
+      <div class="row half middle">
+        <input class="half" type="range" min="-5" max="5" ng-model="app.user.weightGoal" />
+
+        <span ng-bind="app.user.weightGoal"></span>lbs
+      </div>
+    </div>
+
+    <div class="row vertical half center spaced">
+      <p>To maintain your current weight, you need <strong ng-bind="app.user | mifflin | number:0"></strong> calories per day.</p>
+      <p>To <span ng-if="app.user.weightGoal > 0">gain</span><span ng-if="app.user.weightGoal < 1">lose</span> <strong ng-bind="app.user.weightGoal"></strong> lbs per week, you need <strong ng-bind="app.user | caloricRequirement | number:0"></strong> calories per day.</p>
+    </div>
+
+    <div class="row half center" ng-if="saveSuccess">
+      <div class="full success">
+        <p>You have successfully updated your information!</p>
+      </div>
+    </div>
+
+    <div class="row half center end">
+      <div class="quarter">
+        <button type="submit" class="success">Save</button>
+      </div>
+    </div>
+  </form>
+</section>
