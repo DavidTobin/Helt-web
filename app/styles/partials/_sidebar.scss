@@ -39,7 +39,7 @@
         }
       }
 
-      &.user {
+      &.user, &.admin {
         margin-bottom: 30px;
 
         a {
@@ -61,6 +61,25 @@
         &.active {
           a {
             background: lighten(invert($primary-color), 15%);
+          }
+        }
+      }
+
+      &.admin {
+        margin: 0;
+
+        a {
+          background: $admin-color;
+          @include link-colors(contrast-color($admin-color), lighten(contrast-color($admin-color), 15%));
+
+          &:hover {
+            background: lighten($admin-color, 5%)
+          }
+        }
+
+        &.active {
+          a {
+            background: lighten($admin-color, 15%);
           }
         }
       }

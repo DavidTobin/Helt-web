@@ -11,7 +11,7 @@ angular.module('webApp')
   .service('$config', function () {
     return {
       api: {
-        url: 'http://api.helt.io'
+        url: 'http://api.' + window.location.hostname
       }
     };
   });

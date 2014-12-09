@@ -23,16 +23,16 @@ angular.module('webApp')
             $cookies.token = token.token;
           }
 
-          if (token.user.id) {
-            $cookies.ident = token.user.id;
-          }
-
           $rootScope.$emit('auth:token', token.token);
 
           defer.resolve(token);
         } else {
-          defer.reject();
+          defer.reject({
+            msg: 'Unknown error occurred'
+          });
         }
+      }, function (error) {
+        defer.reject(error.data);
       });
 
       return defer.promise;
@@ -50,20 +50,18 @@ angular.module('webApp')
     };
 
     if ($cookies.token) {
+      console.log($cookies.token);
       $rootScope.$emit('auth:token', $cookies.token);
 
-      if ($cookies.ident) {
-        $scope.app.user = User.one($cookies.ident).get().then(function (user) {
-          if (!user) {
-            $cookies.token = null;
-            $cookies.ident = null;
-          } else {
-            $scope.app.user = user;
-            $rootScope.user = user;
+      $scope.app.user = User.me.get().then(function (user) {
+        if (!user) {
+          $cookies.token = null;
+        } else {
+          $scope.app.user = user;
+          $rootScope.user = user;
 
-            $rootScope.$emit('auth:user', user);
-          }
-        });
-      }
+          $rootScope.$emit('auth:user', user);
+        }
+      });
     }
   });

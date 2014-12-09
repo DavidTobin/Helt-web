@@ -13,7 +13,8 @@ angular.module('webApp')
       $location.path('/dashboard');
     }
 
-    function register () {
+    function register (form) {
+      console.log($scope.form);
       User
         .post($scope.register)
         .then(function (user) {
@@ -21,7 +22,7 @@ angular.module('webApp')
             email: user.email,
             password: $scope.register.password
           }).then(function () {
-            $location.path('/dashboard');
+            $location.path('/user/account');
           });
         });
     }

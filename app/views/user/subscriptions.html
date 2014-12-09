@@ -1,1 +1,53 @@
-<p>This is the user/subscriptions view.</p>
+<section class="standard">
+	<h1>Subscriptions</h1>
+
+	<hr />
+
+	<div class="row vertical three-quarter center spaced">
+		<h2>Recurring Subscriptions</h2>
+
+		<hr />
+
+		<table class="full">
+			<thead>
+				<tr>
+					<th>Subscription</th>
+					<th>Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Dec 9, 2014</td>
+					<td><span class="indicator success">Active</span></td>
+					<td><button class="error">Cancel</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="row vertical three-quarter center spaced">
+		<h2>Payment Log</h2>
+
+		<hr />
+
+		<table class="full">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Expires</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Dec 9, 2014</td>
+					<td>Jan 9, 2014</td>
+					<td>{{ 1 | currency }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>

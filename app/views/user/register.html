@@ -3,9 +3,9 @@
 
   <hr />
 
-  <form ng-submit="doRegister()">
-    <div class="row vertical half center">
-      <div class="row">
+  <form name="register" ng-submit="doRegister(form)">
+    <div class="row vertical half center spaced">
+      <div class="row vertical">
         <h2>Personal Details</h2>
 
         <hr />
@@ -29,33 +29,6 @@
       <div class="row">
         <label>Confirm Password</label>
         <input class="full" type="password" ng-model="confirmPassword" placeholder="supersafepassword" />
-      </div>
-
-      <div class="row">
-        <hr class="full" />
-      </div>
-
-      <div class="row spaced">
-        <h2>Credit Card <small>You will not be charged for the first month</small></h2>
-      </div>
-
-      <div class="row">
-        <label>Card Number</label>
-        <input class="full" type="text" ng-model="register.card.number" placeholder="xxxx xxxx xxxx xxxx" />
-      </div>
-
-      <div class="row">
-        <div class="row half">
-          <label class="third">Expires</label>
-
-          <input class="two-thirds" type="text" placeholder="01/14" ng-model="register.card.expiry" />
-        </div>
-
-        <div class="row half">
-          <label class="third">CCV</label>
-
-          <input class="two-thirds" type="text" placeholder="000" ng-model="register.card.ccv" />
-        </div>
       </div>
 
       <div class="row end">

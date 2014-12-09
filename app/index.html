@@ -26,12 +26,14 @@
 
       <section class="section-main">
         <div ng-view=""></div>
+
+        <footer>
+          <p>Made in Dublin &copy; 2015 Helt.io</p>
+
+          <div class="right rebecca" title="RIP Rebecca Meyer"></div>
+        </footer>
       </section>
     </div>
-
-    <footer>
-      <p>Made in Dublin &copy; 2015 Helt.io
-    </footer>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
@@ -56,6 +58,7 @@
     <script src="bower_components/restangular/dist/restangular.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/detectizr/dist/detectizr.js"></script>
+    <script src="bower_components/angular-payments/lib/angular-payments.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -94,6 +97,10 @@
         <script src="scripts/filters/mifflin.js"></script>
         <script src="scripts/filters/caloricrequirement.js"></script>
         <script src="scripts/filters/energyexpenditure.js"></script>
+        <script src="scripts/controllers/admin/user.js"></script>
+        <script src="scripts/controllers/admin/user/:userid.js"></script>
+        <script src="scripts/controllers/admin/gym.js"></script>
+        <script src="scripts/controllers/admin/money.js"></script>
         <!-- endbuild -->
 
   <!--<script>

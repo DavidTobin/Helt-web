@@ -6,6 +6,13 @@
   <form ng-submit="login()">
     <div class="row vertical half center">
       <p class="center"><small>Please enter your login details</small></p>
+
+      <div class="row" ng-if="error">
+        <div class="full error">
+          {{ error.msg }}
+        </div>
+      </div>
+
       <div class="row">
         <label class="full">Email</label>
         <input class="full" type="email" ng-model="app.login.email" placeholder="Email Address" />

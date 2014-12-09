@@ -85,12 +85,25 @@ button,
   }
 
   &.error {
+    background: $error-color;
+    color: contrast-color($error-color);
 
+    &:hover {
+      background: lighten(saturate($error-color, 20%), 5%);
+    }
+
+    &:active {
+      background: lighten(saturate($error-color, 20%), 10%);
+    }
+  }
+
+  &.round {
+    @include border-radius(10px);
   }
 }
 
 label {
-  width: 20% !important;
+  width: 20%;
   text-transform: uppercase;
   font-family: $skinny-font;
   font-size: $base-font-size - 2px;

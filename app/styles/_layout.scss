@@ -5,6 +5,10 @@
   width: 100%;
   margin-top: 20px;
 
+  hr {
+    width: 100%;
+  }
+
   &.vertical {
     margin-top: 0;
     @include flex-direction(column);
@@ -16,10 +20,6 @@
         margin-top: 0;
       }
     }
-  }
-
-  &.spaced {
-    margin-top: 30px;
   }
 }
 
@@ -74,4 +74,8 @@
   @include clearfix();
 
   float: right;
+}
+
+.spaced {
+  margin-top: 30px;
 }

@@ -1,0 +1,35 @@
+<section class="standard">
+	<h1>
+		User Management
+	</h1>
+
+	<hr />
+
+	<div class="row center end">
+	<input class="quarter" type="search" ng-model="search" placeholder="Filter" />
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Age</th>
+				<th>Created</th>
+				<th>Last Updated</th>
+			</tr>
+		</thead>
+
+		<tbody ng-repeat="user in users | filter:search | limitTo:limit">
+			<tr ng-click="viewUser(user)">
+				<td>{{ user.name }}</td>
+				<td>{{ user.email }}</td>
+				<td>{{ user.gender }}</td>
+				<td>{{ user.age }}</td>
+				<td>{{ user.createdAt | date }}</td>
+				<td>{{ user.updatedAt | date }}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

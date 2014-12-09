@@ -1,0 +1,94 @@
+<section class="standard">
+	<h1>{{ user.name }}</h1>
+
+	<hr />
+
+	<div class="row">
+		<div class="three-quarter">
+			<div class="row vertical three-quarter center">
+				<div class="row vertical center">
+					<h2>Recurring Subscriptions</h2>
+
+					<hr />
+
+					<table class="full">
+						<thead>
+							<tr>
+								<th>Subscription</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>Dec 9, 2014</td>
+								<td><span class="indicator success">Active</span></td>
+								<td><button class="error">Cancel</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="row vertical center spaced">
+					<h2>Transactions</h2>
+
+					<hr />
+
+					<table>
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Item</th>
+								<th>Amount</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>Dec 25, 2014</td>
+								<td>1-month subscription</td>
+								<td>{{ 1 | currency }}</td>
+								<td>
+									<button class="error">Refund</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="quarter">
+			<div class="detail">
+				<h2>Details</h2>
+
+				<hr />
+
+				<dl>
+					<dt>Name</dt>
+					<dd>
+						<input class="full" type="text" ng-model="user.name" ng-value="user.name" />
+					</dd>
+
+					<dt>Email</dt>
+					<dd>
+						<input class="full" type="text" ng-model="user.email" ng-value="user.email" />
+					</dd>
+				</dl>
+			</div>
+
+			<div class="detail spaced">
+				<h2>Roles</h2>
+
+				<hr />
+
+				<dl ng-repeat="role in roles">
+					<dt>{{ role.name }}</dt>
+					<dd><input type="checkbox" ng-value="!!user.roles[role.name]" /></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</section>

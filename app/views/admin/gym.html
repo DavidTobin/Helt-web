@@ -1,0 +1,29 @@
+<section class="standard">
+	<h1>
+		Gym Management
+	</h1>
+
+	<hr />
+
+	<div class="row center end">
+	<input class="quarter" type="search" ng-model="search" placeholder="Filter" />
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Created</th>
+				<th>Last Updated</th>
+			</tr>
+		</thead>
+
+		<tbody ng-repeat="gym in gyms | filter:search | limitTo:limit">
+			<tr ng-click="viewGym(gym)">
+				<td>{{ gym.name }}</td>
+				<td>{{ gym.createdAt | date }}</td>
+				<td>{{ gym.updatedAt | date }}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

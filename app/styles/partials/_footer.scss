@@ -3,4 +3,12 @@ footer {
   color: invert($background-color);
   text-align: center;
   font-size: $base-font-size - 2px;
+
+  .rebecca {
+  	background: #663399;
+  	background: rebeccapurple;
+  	width: 10px;
+  	height: 10px;
+  	margin-right: 10px;
+  }
 }

@@ -10,7 +10,8 @@
  */
 
 // Globals
-window.API_URL = 'http://api.helt.io';
+console.log(window.location.port);
+window.API_URL = 'http://api.' + window.location.hostname;
 
 angular
   .module('webApp', [
@@ -21,7 +22,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'restangular'
+    'restangular',
+    'angularPayments'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -96,6 +98,22 @@ angular
       .when('/user/subscriptions', {
         templateUrl: 'views/user/subscriptions.html',
         controller: 'UserSubscriptionsCtrl'
+      })
+      .when('/admin/user', {
+        templateUrl: 'views/admin/user.html',
+        controller: 'AdminUserCtrl'
+      })
+      .when('/admin/user/:userId', {
+        templateUrl: 'views/admin/user/:userid.html',
+        controller: 'AdminUserUseridCtrl'
+      })
+      .when('/admin/gym', {
+        templateUrl: 'views/admin/gym.html',
+        controller: 'AdminGymCtrl'
+      })
+      .when('/admin/money', {
+        templateUrl: 'views/admin/money.html',
+        controller: 'AdminMoneyCtrl'
       })
       .otherwise({
         redirectTo: '/'

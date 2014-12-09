@@ -20,7 +20,7 @@ angular.module('webApp')
             if (nextChild.classList.contains('submenu')) {
               traverse(nextChild.children[0].children[0], next);
             } else if (nextChild.nodeName === 'LI') {
-              if (nextChild.children[0].href.replace(window.location.origin + '/#', '').match(next.$$route.regexp)) {
+              if (next.$$route && nextChild.children[0].href.replace(window.location.origin + '/#', '').match(next.$$route.regexp)) {
                 nextChild.classList.add('active');
               } else {
                 if (nextChild.attributes.getNamedItem('ng-menu') === null) {

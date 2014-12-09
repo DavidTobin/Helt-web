@@ -48,6 +48,44 @@ h6 {
   font-size: $base-font-size;
 }
 
+table {
+  @include box-shadow(0px 1px 1px lighten($primary-color, 40%));
+
+  width: 100%;
+  margin-top: 20px;
+
+  td, th {
+    padding: 10px 15px;
+  }
+
+  thead {
+    background: $background-color;
+
+    th {
+      border-bottom: 1px solid lighten($primary-color, 75%);
+      font-family: $skinny-font;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+  }
+
+  tbody {
+    tr {
+      &[ng-click] {
+        cursor: pointer;
+      }
+
+      &:hover {
+        background: $hightlight-color;
+      }
+    }
+
+    td {
+      font-size: $base-font-size - 2px;
+    }
+  }
+}
+
 hr {
   border: none;
   border-top: 1px solid lighten($primary-color, 50%);
@@ -116,6 +154,8 @@ small {
 }
 
 .detail {
+  @include box-shadow(0px 1px 2px lighten($primary-color, 60%));
+
   background: darken($secondary-color, 4%);
   padding: 10px 15px;
 }
@@ -145,13 +185,39 @@ small {
 }
 
 div, p {
-  &.success {
-    @include box-shadow(0px 1px 1px $primary-color);
-
+  &.success,
+  &.error {
     font-family: $skinny-font;
-    font-weight: 300;
+    font-weight: bold;
+    padding: 10px 15px;
+  }
+
+  &.success {
     background: $success-color;
     color: $secondary-color;
-    padding: 10px 15px;
+  }
+
+  &.error {
+    background: $error-color;
+    color: $secondary-color;
+  }
+}
+
+.indicator {
+  @include border-radius(10px);
+
+  background: $primary-color;
+  color: contrast-color($primary-color);
+  border: 2px solid lighten($primary-color, 5%);
+  padding: 5px;
+  font-family: $skinny-font;
+  font-weight: bold;
+  font-size: $base-font-size - 6px;
+  text-transform: uppercase;
+
+  &.success {
+    background: $success-color;
+    color: contrast-color($success-color);
+    border: 2px solid lighten($success-color, 5%);
   }
 }
