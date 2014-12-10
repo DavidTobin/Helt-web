@@ -1,0 +1,29 @@
+<section class="standard">
+  <h1>Product Management</h1>
+
+  <hr />
+
+  <div class="row end">
+    <button>Add Product</button>
+  </div>
+
+  <div class="row">
+    <table class="full">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Prices</th>
+          <th>Expires</th>
+        </tr>
+      </thead>
+
+      <tbody ng-repeat="product in products">
+        <tr>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.expires }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

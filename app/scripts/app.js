@@ -115,6 +115,10 @@ angular
         templateUrl: 'views/admin/money.html',
         controller: 'AdminMoneyCtrl'
       })
+      .when('/admin/product', {
+        templateUrl: 'views/admin/product.html',
+        controller: 'AdminProductCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
