@@ -23,6 +23,7 @@ angular.module('webApp')
             $cookies.token = token.token;
           }
 
+          // Auth event
           $rootScope.$emit('auth:token', token.token);
 
           defer.resolve(token);
@@ -49,8 +50,29 @@ angular.module('webApp')
       getToken: getToken
     };
 
+    $rootScope.api = {
+      create: function (dataSource) {
+        return dataSource.save();
+      },
+
+      read: function (dataSource) {
+        return dataSource.get().$object;
+      },
+
+      readAll: function (dataSource) {
+        return dataSource.getList().$object;
+      },
+
+      update: function (dataSource) {
+        return dataSource.save();
+      },
+
+      delete: function (dataSource) {
+        return dataSource.remove();
+      }
+    };
+
     if ($cookies.token) {
-      console.log($cookies.token);
       $rootScope.$emit('auth:token', $cookies.token);
 
       $scope.app.user = User.me.get().then(function (user) {
@@ -58,7 +80,6 @@ angular.module('webApp')
           $cookies.token = null;
         } else {
           $scope.app.user = user;
-          $rootScope.user = user;
 
           $rootScope.$emit('auth:user', user);
         }

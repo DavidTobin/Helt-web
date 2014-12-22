@@ -15,9 +15,12 @@ angular.module('webApp')
       $scope.user.roles = _.without($scope.user.roles, role);
 
       _.defer(function () {
-        console.log($scope.user);
         $scope.user.save();
       });
+    }
+
+    function hasRole(role) {
+    	return _.contains($scope.user.roles, role);
     }
 
     function addRole () {
@@ -31,4 +34,5 @@ angular.module('webApp')
     $scope.user = User.one(userId).get().$object;
     $scope.removeRole = removeRole;
     $scope.addRole = addRole;
+    $scope.hasRole = hasRole;
   });

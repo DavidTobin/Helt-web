@@ -13,7 +13,6 @@ $sidebar-color: $tertiary-color;
     margin: 0 auto;
     margin-top: 30px;
     text-align: center;
-    border-bottom: 3px solid $sidebar-color;
 
     li {
         a {
@@ -35,12 +34,15 @@ $sidebar-color: $tertiary-color;
       &.active {
         a {
           background: lighten($sidebar-color, 15%);
+          color: lighten(contrast-color($sidebar-color), 30%)
         }
       }
 
       &[ng-menu].active {
         a {
           background: lighten($sidebar-color, 5%);
+          border-bottom: 3px solid $sidebar-color;
+          font-weight: 300;
         }
       }
 

@@ -77,6 +77,11 @@
 						<input class="full" type="text" ng-model="user.email" ng-value="user.email" />
 					</dd>
 				</dl>
+
+				<div class="row end">
+					<button class="success" ng-api="update:user">Save</button>
+
+				</div>
 			</div>
 
 			<div class="detail spaced">
@@ -91,9 +96,9 @@
   				</dl>
 
           <div class="row end">
-            <input class="half" type="text" placeholder="Add Role" ng-model="newRole" />
+            <input class="three-quarter" type="text" placeholder="Role" ng-model="newRole" />
 
-            <button type="submit" class="tiny shadow success">Add Role</button>
+            <button type="submit" class="tiny shadow success quarter">Add Role</button>
           </div>
         </form>
 			</div>

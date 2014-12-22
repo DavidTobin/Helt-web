@@ -10,7 +10,8 @@ select {
   outline: none;
 
   &[type="radio"],
-  &[type="range"] {
+  &[type="range"],
+  &[type="checkbox"] {
     padding: 0;
     box-shadow: none;
     border: none;
@@ -36,6 +37,10 @@ button,
 
   &:hover {
     background: lighten($tertiary-color, 10%);
+  }
+
+  &[disabled="disabled"] {
+    cursor: default;
   }
 
   &.shadow {
@@ -89,7 +94,8 @@ button,
       background: lighten(desaturate($success-color, 20%), 10%);
     }
 
-    &:active {
+    &:active,
+    &.active {
       background: lighten(desaturate($success-color, 20%), 15%);
     }
   }
@@ -102,7 +108,8 @@ button,
       background: lighten(saturate($error-color, 20%), 5%);
     }
 
-    &:active {
+    &:active,
+    &.active {
       background: lighten(saturate($error-color, 20%), 10%);
     }
   }

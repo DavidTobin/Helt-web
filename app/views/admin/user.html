@@ -6,10 +6,18 @@
 	<hr />
 
 	<div class="row center end">
-	<input class="quarter" type="search" ng-model="search" placeholder="Filter" />
+    <div class="row quarter end">
+      <label>Filter</label>
+      <input class="half" type="search" ng-model="search" ng-smart-filter placeholder="Filter" />
+    </div>
+
+    <div class="row quarter end">
+      <label>Limit</label>
+      <input class="half" type="number" ng-model="limit" ng-value="limit" placeholder="Limit" />
+    </div>
 	</div>
 
-	<table>
+	<table class="spaced">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -21,7 +29,7 @@
 			</tr>
 		</thead>
 
-		<tbody ng-repeat="user in users | filter:search | limitTo:limit">
+		<tbody ng-repeat="user in users | filter:$search | limitTo:limit">
 			<tr ng-click="viewUser(user)">
 				<td>{{ user.name }}</td>
 				<td>{{ user.email }}</td>

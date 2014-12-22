@@ -11,8 +11,8 @@ angular.module('webApp')
   .controller('GymCtrl', function ($scope, $rootScope, $filter, User) {
     function getGym () {
       User
-        .one($rootScope.user.id)
-        .one('gym', $rootScope.user.gymId)
+        .me
+        .one('gym', $scope.app.user.gymId)
         .get()
         .then(function (gym) {
           $scope.gym = gym;
@@ -21,8 +21,8 @@ angular.module('webApp')
 
     function getGymWork () {
       User
-        .one($rootScope.user.id)
-        .one('gym', $rootScope.user.gymId)
+        .me
+        .one('gym', $scope.app.user.gymId)
         .all('work')
         .getList()
         .then(function (work) {

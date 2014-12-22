@@ -1,3 +1,5 @@
+/* global _ */
+
 'use strict';
 
 /**
@@ -8,14 +10,14 @@
  * Controller of the webApp
  */
 angular.module('webApp')
-  .controller('UserAccountCtrl', function ($scope, $rootScope, User) {
-    var energyExpenditureOptions;
-
+  .controller('UserAccountCtrl', function ($scope, $rootScope) {
     function updateUser () {
+      console.log($scope);
       $scope.app.user
         .save()
-        .then(function () {
+        .then(function (user) {
           $scope.saveSuccess = true;
+          $scope.app.user = user;
 
           _.delay(function () {
             $scope.$apply(function () {
@@ -25,7 +27,7 @@ angular.module('webApp')
         });
     }
 
-    function onAuth (user) {
+    function onAuth () {
       var energyExpenditureOptions = [
         {
           name: 'Sedentary, little to no exercise.',
@@ -54,7 +56,7 @@ angular.module('webApp')
       ];
 
       $scope.energyExpenditureOption = _.findWhere(energyExpenditureOptions, {
-        value: $rootScope.user.energyExpenditure
+        value: $scope.app.user.energyExpenditure
       });
 
       $scope.energyExpenditureOptions = energyExpenditureOptions;
