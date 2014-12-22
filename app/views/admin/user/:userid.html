@@ -80,14 +80,22 @@
 			</div>
 
 			<div class="detail spaced">
-				<h2>Roles</h2>
+        <form ng-submit="addRole()">
+  				<h2>Roles</h2>
 
-				<hr />
+  				<hr />
 
-				<dl ng-repeat="role in roles">
-					<dt>{{ role.name }}</dt>
-					<dd><input type="checkbox" ng-value="!!user.roles[role.name]" /></dd>
-				</dl>
+  				<dl ng-repeat="role in user.roles">
+  					<dt>{{ role }}</dt>
+  					<dd><button class="tiny error" ng-click="removeRole(role)">Remove</button></dd>
+  				</dl>
+
+          <div class="row end">
+            <input class="half" type="text" placeholder="Add Role" ng-model="newRole" />
+
+            <button type="submit" class="tiny shadow success">Add Role</button>
+          </div>
+        </form>
 			</div>
 		</div>
 	</div>

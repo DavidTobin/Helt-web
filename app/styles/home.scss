@@ -10,7 +10,7 @@
 	}
 
 	&.what-we-do {
-		background: linear-gradient(to bottom right, color-stops(#525064, #5A3164 25%, #8C633F));
+		background: $primary-color;
 		min-height: 500px;
 
 		h1 {

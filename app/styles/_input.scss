@@ -38,10 +38,20 @@ button,
     background: lighten($tertiary-color, 10%);
   }
 
+  &.shadow {
+    @include box-shadow(0px 1px 1px lighten($primary-color, 40%));
+  }
+
   &.xlarge {
     padding: 20px 65px;
     font-size: $base-font-size + 12px;
     text-align: center;
+  }
+
+  &.tiny {
+    padding: 5px 10px;
+    font-size: $base-font-size - 6px;
+    text-transform: uppercase;
   }
 
   .center {
