@@ -5,24 +5,32 @@
 
 	<hr />
 
-	<div class="row center end">
-	<input class="quarter" type="search" ng-model="search" placeholder="Filter" />
+	<div class="row">
+    <div class="three-quarter">
+      <input class="half" type="search" ng-model="search" ng-smart-filter placeholder="Filter" />
+    </div>
+
+    <div class="quarter">
+      <button class="right success">Add Gym</button>
+    </div>
 	</div>
 
-	<table>
+	<table class="spaced">
 		<thead>
 			<tr>
 				<th>Name</th>
 				<th>Created</th>
 				<th>Last Updated</th>
+        <th>Actions</th>
 			</tr>
 		</thead>
 
-		<tbody ng-repeat="gym in gyms | filter:search | limitTo:limit">
+		<tbody ng-repeat="gym in gyms | filter:$search | limitTo:limit">
 			<tr ng-click="viewGym(gym)">
 				<td>{{ gym.name }}</td>
 				<td>{{ gym.createdAt | date }}</td>
 				<td>{{ gym.updatedAt | date }}</td>
+        <td><button class="error">Remove</button></td>
 			</tr>
 		</tbody>
 	</table>

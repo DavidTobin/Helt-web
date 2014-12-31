@@ -1,0 +1,28 @@
+<section class="standard">
+  <h1>Record Workout</h1>
+
+  <hr />
+
+  <form ng-submit="recordWorkout()">
+    <div class="row vertical half center">
+      <div class="row spaced">
+        <label class="half">Calories Burned</label>
+
+        <input type="number" class="half" placeholder="0" ng-model="workout.calories" />
+      </div>
+
+      <div class="row spaced">
+        <label class="half">
+          Date
+          <small class="block">{{ workout.date | date }}</small>
+        </label>
+
+        <input type="date" class="half" ng-model="workout.date" />
+      </div>
+
+      <div class="row spaced end">
+        <button type="submit" class="success">Record</button>
+      </div>
+    </div>
+  </form>
+</section>

@@ -28,7 +28,7 @@ button,
 .button {
   @include transition(background 500ms);
 
-  background: $tertiary-color;
+  background: $primary-color;
   color: $secondary-color;
   font-family: $skinny-font;
   padding: 8px 25px;
@@ -36,7 +36,7 @@ button,
   cursor: pointer;
 
   &:hover {
-    background: lighten($tertiary-color, 10%);
+    background: lighten($primary-color, 10%);
   }
 
   &[disabled="disabled"] {

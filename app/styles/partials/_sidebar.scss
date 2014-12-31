@@ -7,6 +7,7 @@ $sidebar-color: $tertiary-color;
 
   width: $sidebar-width;
   padding: 20px 10px;
+  overflow-y: auto;
 
   ul {
     width: 90%;
@@ -17,18 +18,19 @@ $sidebar-color: $tertiary-color;
     li {
         a {
           @include link-colors(contrast-color($sidebar-color), lighten(contrast-color($sidebar-color), 20%));
-        @include transition(background 400ms);
+          @include transition(background 400ms);
 
-        display: block;
-        background: $primary-color;
-        padding: 10px;
-        font-family: $skinny-font;
-        font-size: $base-font-size + 4px;
-        font-weight: 300;
+          display: block;
+          background: $primary-color;
+          cursor: pointer;
+          padding: 10px;
+          font-family: $skinny-font;
+          font-size: $base-font-size + 4px;
+          font-weight: 300;
 
-        &:hover {
-          background: lighten($sidebar-color, 5%);
-        }
+          &:hover {
+            background: lighten($sidebar-color, 5%);
+          }
       }
 
       &.active {
@@ -38,11 +40,27 @@ $sidebar-color: $tertiary-color;
         }
       }
 
+      &[ng-menu] {
+        a {
+          &:after {
+            @include clearfix();
+
+            float: right;
+            content: " \2630";
+            color: contrast-color($primary-color);
+          }
+        }
+      }
+
       &[ng-menu].active {
         a {
           background: lighten($sidebar-color, 5%);
           border-bottom: 3px solid $sidebar-color;
           font-weight: 300;
+
+          &:after {
+            color: contrast-color(lighten($sidebar-color, 5%));
+          }
         }
       }
 
@@ -60,6 +78,14 @@ $sidebar-color: $tertiary-color;
 
           &:hover {
             background: darken($secondary-color, 5%);
+          }
+        }
+
+        &[ng-menu] {
+          a {
+            &:after {
+              color: contrast-color($secondary-color);
+            }
           }
         }
 
@@ -85,6 +111,14 @@ $sidebar-color: $tertiary-color;
 
           &:hover {
             background: lighten($admin-color, 5%)
+          }
+        }
+
+        &[ng-menu] {
+          a {
+            &:after {
+              color: contrast-color($admin-color);
+            }
           }
         }
 

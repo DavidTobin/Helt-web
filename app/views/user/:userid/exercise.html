@@ -1,0 +1,39 @@
+<section class="standard">
+  <h1>Overview</h1>
+
+  <hr />
+
+  <div class="row">
+    <div class="three-quarter">
+      <canvas ng-chart ng-chart-data="chartData"></canvas>
+    </div>
+
+    <div class="quarter">
+      <h2 class="center">Statistics</h2>
+
+      <hr />
+
+      <div class="row vertical">
+        <div class="row vertical detail spaced">
+          <h3>Today</h3>
+
+          <dl>
+            <dt>Target</dt>
+            <dd>{{ exercises | sumToday:'calories' }}</dd>
+          </dl>
+        </div>
+
+        <div class="row vertical detail spaced">
+          <h3>This Month</h3>
+
+          <hr />
+
+          <dl>
+            <dt>Target</dt>
+            <dd>1500/3000</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

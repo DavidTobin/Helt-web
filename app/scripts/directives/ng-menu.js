@@ -15,7 +15,7 @@ angular.module('webApp')
 
         element[0].addEventListener('click', function () {
           element.toggleClass('active');
-          subElement.toggleClass('hide-animate');
+          subElement.toggleClass('hide');
         });
       }
     };

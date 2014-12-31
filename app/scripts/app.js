@@ -119,6 +119,14 @@ angular
         templateUrl: 'views/admin/product.html',
         controller: 'AdminProductCtrl'
       })
+      .when('/user/:userId/exercise/create', {
+        templateUrl: 'views/user/:userid/exercise/create.html',
+        controller: 'UserUseridExerciseCreateCtrl'
+      })
+      .when('/user/:userId/exercise', {
+        templateUrl: 'views/user/:userid/exercise.html',
+        controller: 'UserUseridExerciseCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

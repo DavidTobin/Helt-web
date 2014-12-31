@@ -21,6 +21,16 @@
       }
     }
   }
+
+  > div {
+    &.center {
+      text-align: center;
+    }
+
+    &.spaced {
+      margin: 0 15px;
+    }
+  }
 }
 
 .inline-row {

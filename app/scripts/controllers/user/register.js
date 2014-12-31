@@ -14,7 +14,6 @@ angular.module('webApp')
     }
 
     function register (form) {
-      console.log($scope.form);
       User
         .post($scope.register)
         .then(function (user) {
