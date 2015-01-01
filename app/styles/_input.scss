@@ -119,6 +119,14 @@ button,
   }
 }
 
+.mobile {
+  .button {
+    &.xlarge {
+      width: 100%;
+    }
+  }
+}
+
 label {
   width: 20%;
   text-transform: uppercase;

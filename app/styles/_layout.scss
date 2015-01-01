@@ -9,6 +9,10 @@
     width: 100%;
   }
 
+  p {
+    margin: 5px 0 15px 0;
+  }
+
   &.vertical {
     margin-top: 0;
     @include flex-direction(column);
@@ -63,9 +67,17 @@
   width: 66.666%;
 }
 
+.small-full {
+  width: 100%;
+}
+
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+.middle {
+  align-self: center;
 }
 
 .block {

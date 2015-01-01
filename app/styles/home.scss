@@ -5,12 +5,12 @@
     transform: scale(1.5);
   }
 
-	&.who-are-we {
-
-	}
+  h1 {
+    text-align: center;
+  }
 
 	&.what-we-do {
-		background: $primary-color;
+    background: linear-gradient(to bottom right, color-stops(lighten($primary-color, 20%) 10%, $primary-color));
 		min-height: 500px;
 
 		h1 {
@@ -33,7 +33,12 @@
 		}
 	}
 
-	&.how-can-you {
+  &.whats-the-big-idea {
+    background: $primary-color;
+    color: contrast-color($primary-color);
+  }
+
+	&.how-help-you {
 		background: $secondary-color;
 		color: $font-color;
 		min-height: 400px;

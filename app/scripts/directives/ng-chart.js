@@ -36,7 +36,8 @@ angular.module('webApp')
           }
 
           new window.Chart(context).Line(data, {
-            scaleShowGridLines : true
+            scaleShowGridLines : false,
+            showTooltips: true
           });
         });
       }

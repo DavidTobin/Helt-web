@@ -17,6 +17,10 @@ angular.module('webApp')
           $scope.app.user   = token.user;
           $scope.app.token  = token.token;
 
+          if ($scope.app.user.roles.indexOf('admin') !== null) {
+            $scope.app.adminSidebar = 'views/admin/sidebar.html';
+          }
+
           $rootScope.token = token.token;
 
           if (token.token) {
@@ -80,6 +84,10 @@ angular.module('webApp')
           $cookies.token = null;
         } else {
           $scope.app.user = user;
+
+          if ($scope.app.user.roles.indexOf('admin') !== null) {
+            $scope.app.adminSidebar = 'views/admin/sidebar.html';
+          }
 
           $rootScope.$emit('auth:user', user);
         }

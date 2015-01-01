@@ -152,6 +152,12 @@ small {
   }
 }
 
+.mobile {
+  .section-main {
+    width: 100%;
+  }
+}
+
 .detail {
   @include box-shadow(0px 1px 2px lighten($primary-color, 60%));
 
@@ -219,4 +225,8 @@ div, p {
     color: contrast-color($success-color);
     border: 2px solid lighten($success-color, 5%);
   }
+}
+
+.circle {
+  @include border-radius(50%);
 }

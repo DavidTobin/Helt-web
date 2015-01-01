@@ -30,7 +30,7 @@
 
           <dl>
             <dt>Target</dt>
-            <dd>1500/3000</dd>
+            <dd>{{ exercises | sum:'calories' }} / {{ app.user | caloricRequirement:'month' }}</dd>
           </dl>
         </div>
       </div>

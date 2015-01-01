@@ -3,26 +3,7 @@
 </a>
 
 <ul ng-route-watch>
-  <li class="admin" ng-if="app.user && app.user.isSuperUser()" ng-menu="admin-child">
-    <a href="javascript://">Admin</a>
-  </li>
-
-  <li class="submenu hide" data-menu="admin-child">
-    <ul>
-      <li><a href="/#/admin/user">Users</a></li>
-      <li><a href="/#/admin/gym">Gyms</a></li>
-      <li><a href="/#/admin/product">Products</a></li>
-      <li ng-menu="money-child"><a href="javascript://">Money</a></li>
-
-      <li class="submenu hide" data-menu="money-child">
-        <ul>
-          <li><a href="/#/admin/money">Dashboard</a></li>
-          <li><a href="/#/admin/sales">Sales</a></li>
-          <li><a href="/#/admin/refund">Refund</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <ng-include src="app.adminSidebar"></ng-include>
 
   <li class="user" ng-if="app.user.id" ng-menu="user-child">
     <a href="javascript://">{{ app.user.name }}</a>

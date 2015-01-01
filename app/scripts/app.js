@@ -10,9 +10,6 @@
  */
 
 // Globals
-console.log(window.location.port);
-window.API_URL = 'http://api.' + window.location.hostname;
-
 angular
   .module('webApp', [
     'ngAnimate',

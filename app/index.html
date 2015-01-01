@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Helt</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -20,7 +20,7 @@
     <![endif]-->
 
     <div class="container page">
-      <aside class="sidebar">
+      <aside class="sidebar" ng-sidebar>
         <ng-include src="'views/sidebar.html'"></ng-include>
       </aside>
 
@@ -108,6 +108,7 @@
         <script src="scripts/controllers/user/:userid/exercise.js"></script>
         <script src="scripts/services/chart.js"></script>
         <script src="scripts/filters/sumtoday.js"></script>
+        <script src="scripts/directives/ng-sidebar.js"></script>
         <!-- endbuild -->
 
   <!--<script>

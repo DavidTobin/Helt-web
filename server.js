@@ -38,6 +38,8 @@ app.use(function (req, res, next) {
 
   			body = JSON.parse(body);
 
+        console.log(body);
+
   			if (body.roles && body.roles.indexOf('admin') !== -1) {
   				next();
   			} else {
